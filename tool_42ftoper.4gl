@@ -195,7 +195,7 @@ FUNCTION endContainer()
 	DEFINE x SMALLINT
 	IF m_cont[ m_lev ].typ IS NULL OR m_cont[ m_lev ].typ = "GRID" THEN RETURN END IF
 	DISPLAY "EndContainer:",m_lev,":", m_cont[ m_lev ].typ,":", m_cont[ m_lev ].nam
-	CALL m_chan.writeLine(SFMT("%1END -- %2 %3",(m_lev-1) SPACES,m_cont[m_lev].typ, m_cont[m_lev].nam))
+	CALL m_chan.writeLine(SFMT("END -- %1 %2",m_cont[m_lev].typ, m_cont[m_lev].nam))
 	FOR x = m_lev TO m_cont.getLength()
 		CALL m_cont.deleteElement(x)
 	END FOR
@@ -217,7 +217,7 @@ FUNCTION procContainer(l_tag STRING, l_n om.domNode)
 	LET m_cont[m_lev].typ = l_tag
 	LET m_cont[m_lev].nam = l_nam
 	LET l_line = base.StringBuffer.create()
-	CALL l_line.append(SFMT("%1%2 ", (m_lev-1) SPACES,  l_tag))
+	CALL l_line.append(l_tag||" ")
 	IF l_tag != "LAYOUT" AND l_nam IS NOT NULL THEN
 		CALL l_line.append(l_nam||" ")
 	END IF
