@@ -24,11 +24,11 @@
             <FormField name="formonly.t1g2sg1sp1" colName="t1g2sg1sp1" varType="SMALLINT" notNull="1" required="1" defaultValue="0" value="0" fieldId="4">
               <SpinEdit posY="9" posX="0" width="3" gridWidth="3" text="Fried Eggs" valueMin="0" valueMax="2"/>
             </FormField>
-            <Label posY="9" posX="3" width="10" gridWidth="10" text="Fried Eggs"/>
+            <Label posY="9" posX="4" width="10" gridWidth="10" text="Fried Eggs"/>
             <FormField name="formonly.t1g2sg1sp2" colName="t1g2sg1sp2" varType="SMALLINT" notNull="1" required="1" defaultValue="0" value="0" fieldId="5">
               <SpinEdit posY="10" posX="0" width="3" gridWidth="3" text="Boiled Eggs" valueMin="0" valueMax="2"/>
             </FormField>
-            <Label posY="10" posX="3" width="11" gridWidth="11" text="Boiled Eggs"/>
+            <Label posY="10" posX="4" width="11" gridWidth="11" text="Boiled Eggs"/>
           </Grid>
         </Group>
         <Group gridWidth="22" width="22" name="s_7_12" text="Or" posY="11" posX="0">
@@ -112,15 +112,15 @@
         <FormField name="formonly.t1g5sg1sp5" colName="t1g5sg1sp5" varType="SMALLINT" notNull="1" required="1" defaultValue="0" value="0" fieldId="24">
           <SpinEdit posY="31" posX="0" width="3" gridWidth="3" text="Canderel" valueMin="0" valueMax="2"/>
         </FormField>
-        <Label posY="31" posX="3" width="8" gridWidth="8" text="Canderel"/>
+        <Label posY="31" posX="4" width="8" gridWidth="8" text="Canderel"/>
         <FormField name="formonly.t1g5sg1sp6" colName="t1g5sg1sp6" varType="SMALLINT" notNull="1" required="1" defaultValue="0" value="0" fieldId="25">
           <SpinEdit posY="32" posX="0" width="3" gridWidth="3" text="Brown Sugar" valueMin="0" valueMax="2"/>
         </FormField>
-        <Label posY="32" posX="3" width="11" gridWidth="11" text="Brown Sugar"/>
+        <Label posY="32" posX="4" width="11" gridWidth="11" text="Brown Sugar"/>
         <FormField name="formonly.t1g5sg1sp7" colName="t1g5sg1sp7" varType="SMALLINT" notNull="1" required="1" defaultValue="0" value="0" fieldId="26">
           <SpinEdit posY="33" posX="0" width="3" gridWidth="3" text="White Sugar" valueMin="0" valueMax="2"/>
         </FormField>
-        <Label posY="33" posX="3" width="11" gridWidth="11" text="White Sugar"/>
+        <Label posY="33" posX="4" width="11" gridWidth="11" text="White Sugar"/>
       </Grid>
     </Group>
   </VBox>

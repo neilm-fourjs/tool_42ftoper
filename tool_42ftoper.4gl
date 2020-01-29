@@ -152,13 +152,18 @@ FUNCTION procGridItem(l_n om.domNode)
 		DISPLAY SFMT("procGridItem:%1 X=%2 Y=%3 W=%4 FF=%5",l_n.getTagName(), x, y, w, m_fldno )
 	ELSE
 		LET l_txt = l_n.getAttribute("text")
+		IF m_grid[y].line[x,x] = "]" THEN
+			LET l_nudge = l_nudge + 1
+			LET x = x + 1
+		END IF
 		LET m_grid[y].line[x,x+l_txt.getLength()] = l_txt
 		DISPLAY SFMT("procGridItem:%1 X=%2 Y=%3 W=%4 TXT=%5",l_n.getTagName(), x, y, w, l_txt)
 	END IF
 	IF l_nudge > 0 THEN
 		DISPLAY SFMT("WARNING: Fld: %1 Nudged x by %2 !", m_fields[ m_fldno ].nam, l_nudge )
 	END IF
-	CALL m_chan.writeLine( m_grid[y].line CLIPPED)
+
+	LET m_got_ff = FALSE
 
 END FUNCTION
 --------------------------------------------------------------------------------
@@ -172,8 +177,14 @@ FUNCTION procGrid(l_n om.domNode)
 END FUNCTION
 --------------------------------------------------------------------------------
 FUNCTION endGrid()
+	DEFINE x SMALLINT
 	IF m_start_grid THEN
 		DISPLAY "EndGrid:",m_lev
+		FOR x = 1 TO m_grid.getLength()
+			IF m_grid[x].line IS NOT NULL THEN
+				CALL m_chan.writeLine( m_grid[x].line CLIPPED)
+			END IF
+		END FOR
 		CALL m_chan.writeLine("}")
 		LET m_start_grid = FALSE
 		CALL m_chan.writeLine("END -- GRID")
