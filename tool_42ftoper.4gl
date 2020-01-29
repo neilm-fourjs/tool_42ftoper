@@ -51,6 +51,7 @@ MAIN
 
 	CALL procXML(m_node)
 
+	CALL m_chan.writeLine("")
 	CALL m_chan.writeLine("ATTRIBUTES")
 	FOR x = 1 TO m_fields.getLength()
 		CALL m_chan.writeLine( SFMT("%1 f%2 = %3%4;", m_fields[x].wdg, x, m_fields[x].nam, m_fields[x].att ) )
@@ -125,17 +126,33 @@ FUNCTION procGridItem(l_n om.domNode)
 		LET m_fldno = m_fldno + 1
 		LET m_fields[ m_fldno ].nam = l_n.getAttribute("name")
 		LET m_fields[ m_fldno ].wdg = "EDIT"
+		IF l_n.getAttribute("notNull") = "1" THEN
+			LET m_fields[ m_fldno ].att = m_fields[ m_fldno ].att.append(", NOT NULL")
+		END IF
+		IF l_n.getAttribute("required") = "1" THEN
+			LET m_fields[ m_fldno ].att = m_fields[ m_fldno ].att.append(", REQUIRED")
+		END IF
 		LET m_got_ff = TRUE
 		RETURN
 	END IF
 
-	IF m_got_ff THEN
-		LET m_fields[ m_fldno ].wdg = l_n.getTagName().toUpperCase()
-	END IF
-
+	LET l_txt = l_n.getAttribute("text")
 	LET x = l_n.getAttribute("posX") + 1
 	LET y = l_n.getAttribute("posY")
 	LET w = l_n.getAttribute("width")
+
+	IF m_got_ff THEN
+		LET m_fields[ m_fldno ].wdg = l_n.getTagName().toUpperCase()
+		IF l_n.getTagName() = "CheckBox" AND l_txt.getLength() > 0 THEN
+			LET m_fields[ m_fldno ].att = ",TEXT=\""||l_txt||"\""
+		END IF
+		IF l_n.getAttribute("valueMax") IS NOT NULL THEN
+			LET m_fields[ m_fldno ].att = m_fields[ m_fldno ].att.append(", VALUEMAX="||l_n.getAttribute("valueMax") )
+		END IF
+		IF l_n.getAttribute("valueMin") IS NOT NULL THEN
+			LET m_fields[ m_fldno ].att = m_fields[ m_fldno ].att.append(", VALUEMIN="||l_n.getAttribute("valueMin") )
+		END IF
+	END IF
 
 	LET l_nudge = 0
 	WHILE m_grid[y].line[x] != " " AND m_grid[y].line[x] != "]" 
@@ -151,7 +168,6 @@ FUNCTION procGridItem(l_n om.domNode)
 		LET m_grid[y].line[x+w+1] = "]"
 		DISPLAY SFMT("procGridItem:%1 X=%2 Y=%3 W=%4 FF=%5",l_n.getTagName(), x, y, w, m_fldno )
 	ELSE
-		LET l_txt = l_n.getAttribute("text")
 		IF m_grid[y].line[x,x] = "]" THEN
 			LET l_nudge = l_nudge + 1
 			LET x = x + 1
