@@ -1,11 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Form name="Menu" text="Dynamic Menu Demo" style="main2">
+  <ToolBar>
+    <ToolBarItem name="submit" text="submit" image="fa-check" comment="Submit your order"/>
+    <ToolBarItem name="quit" text="Quit" image="fa-power-off" comment="Cancel your order"/>
+    <ToolBarItem name="debug" text="Debug" image="fa-bug" comment="Debug"/>
+  </ToolBar>
   <VBox>
     <Grid width="26" height="1">
       <Label text="Normal Breakfast" posY="1" posX="1" gridWidth="16"/>
     </Grid>
     <Group name="g_2_3" text="Cereals">
-      <Grid width="26" height="1">
+      <Grid width="26" height="2">
         <FormField name="formonly.t1g1sg1ch1" colName="t1g1sg1ch1" fieldId="1" sqlTabName="formonly" tabIndex="1" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
           <CheckBox width="8" text="All Bran" posY="1" posX="1" gridWidth="8"/>
         </FormField>
@@ -13,7 +18,7 @@
           <CheckBox width="4" text="Oats" posY="2" posX="1" gridWidth="4"/>
         </FormField>
         <FormField name="formonly.t1g1sg1ch2o1" colName="t1g1sg1ch2o1" fieldId="3" sqlTabName="formonly" tabIndex="3" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
-          <CheckBox width="9" text="With Milk" posY="2" posX="15" gridWidth="9"/>
+          <CheckBox width="9" text="With Milk" posY="2" posX="16" gridWidth="9"/>
         </FormField>
       </Grid>
     </Group>
@@ -39,18 +44,18 @@
           </Grid>
         </Group>
         <Group name="s_7_16" text="With Choice Of">
-          <Grid width="26" height="1">
+          <Grid width="26" height="2">
             <FormField name="formonly.t1g2sg3ch1" colName="t1g2sg3ch1" fieldId="7" sqlTabName="formonly" tabIndex="7" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
               <CheckBox width="11" text="White Bread" posY="1" posX="1" gridWidth="11"/>
             </FormField>
             <FormField name="formonly.t1g2sg3ch1o1" colName="t1g2sg3ch1o1" fieldId="8" sqlTabName="formonly" tabIndex="8" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
-              <CheckBox width="7" text="Toasted" posY="1" posX="15" gridWidth="7"/>
+              <CheckBox width="7" text="Toasted" posY="1" posX="16" gridWidth="7"/>
             </FormField>
             <FormField name="formonly.t1g2sg3ch2" colName="t1g2sg3ch2" fieldId="9" sqlTabName="formonly" tabIndex="9" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
               <CheckBox width="11" text="Brown Bread" posY="2" posX="1" gridWidth="11"/>
             </FormField>
             <FormField name="formonly.t1g2sg3ch2o1" colName="t1g2sg3ch2o1" fieldId="10" sqlTabName="formonly" tabIndex="10" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
-              <CheckBox width="7" text="Toasted" posY="2" posX="15" gridWidth="7"/>
+              <CheckBox width="7" text="Toasted" posY="2" posX="16" gridWidth="7"/>
             </FormField>
           </Grid>
         </Group>
@@ -59,12 +64,12 @@
     <Group name="g_2_8" text="Light Meal Option 2" height="2">
       <VBox>
         <Group name="s_8_19" text="Sandwich (1 Round)">
-          <Grid width="26" height="1">
+          <Grid width="26" height="4">
             <FormField name="formonly.t1g3sg1ch1" colName="t1g3sg1ch1" fieldId="11" sqlTabName="formonly" tabIndex="11" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
               <CheckBox width="12" text="French Toast" posY="1" posX="1" gridWidth="12"/>
             </FormField>
             <FormField name="formonly.t1g3sg1ch1o1" colName="t1g3sg1ch1o1" fieldId="12" sqlTabName="formonly" tabIndex="12" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
-              <CheckBox width="11" text="With Cheese" posY="1" posX="15" gridWidth="11"/>
+              <CheckBox width="11" text="With Cheese" posY="1" posX="16" gridWidth="11"/>
             </FormField>
             <FormField name="formonly.t1g3sg1ch2" colName="t1g3sg1ch2" fieldId="13" sqlTabName="formonly" tabIndex="13" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
               <CheckBox width="12" text="Egg Sandwich" posY="2" posX="1" gridWidth="12"/>
@@ -79,32 +84,32 @@
         </Group>
       </VBox>
     </Group>
-    <Group name="g_2_9" text="Healthy Meal Option 3" height="4">
+    <Group name="g_2_9" text="Healthy Meal Option 3">
       <Grid width="26" height="1">
         <FormField name="formonly.t1g4sg1ch1" colName="t1g4sg1ch1" fieldId="16" sqlTabName="formonly" tabIndex="16" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
           <CheckBox width="20" text="Fruit &amp; Yoghurt Platter" posY="1" posX="1" gridWidth="20"/>
         </FormField>
       </Grid>
     </Group>
-    <Group name="g_2_10" text="Condiments" height="1">
+    <Group name="g_2_10" text="Condiments">
       <Grid width="26" height="1">
         <FormField name="formonly.t1g5sg1ch1" colName="t1g5sg1ch1" fieldId="17" sqlTabName="formonly" tabIndex="17" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
-          <CheckBox width="10" text="Five Roses" posY="1" posX="1" gridWidth="10"/>
+          <CheckBox width="14" text="Five Roses Tea" posY="1" posX="1" gridWidth="14"/>
         </FormField>
         <FormField name="formonly.t1g5sg1ch1o1" colName="t1g5sg1ch1o1" fieldId="18" sqlTabName="formonly" tabIndex="18" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
-          <CheckBox width="9" text="With Milk" posY="1" posX="15" gridWidth="9"/>
+          <CheckBox width="9" text="With Milk" posY="1" posX="16" gridWidth="9"/>
         </FormField>
         <FormField name="formonly.t1g5sg1ch2" colName="t1g5sg1ch2" fieldId="19" sqlTabName="formonly" tabIndex="19" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
-          <CheckBox width="7" text="Rooibos" posY="2" posX="1" gridWidth="7"/>
+          <CheckBox width="11" text="Rooibos Tea" posY="2" posX="1" gridWidth="11"/>
         </FormField>
         <FormField name="formonly.t1g5sg1ch2o1" colName="t1g5sg1ch2o1" fieldId="20" sqlTabName="formonly" tabIndex="20" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
-          <CheckBox width="9" text="With Milk" posY="2" posX="15" gridWidth="9"/>
+          <CheckBox width="9" text="With Milk" posY="2" posX="16" gridWidth="9"/>
         </FormField>
         <FormField name="formonly.t1g5sg1ch3" colName="t1g5sg1ch3" fieldId="21" sqlTabName="formonly" tabIndex="21" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
           <CheckBox width="6" text="Coffee" posY="3" posX="1" gridWidth="6"/>
         </FormField>
         <FormField name="formonly.t1g5sg1ch3o1" colName="t1g5sg1ch3o1" fieldId="22" sqlTabName="formonly" tabIndex="22" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
-          <CheckBox width="9" text="With Milk" posY="3" posX="15" gridWidth="9"/>
+          <CheckBox width="9" text="With Milk" posY="3" posX="16" gridWidth="9"/>
         </FormField>
         <FormField name="formonly.t1g5sg1ch4" colName="t1g5sg1ch4" fieldId="23" sqlTabName="formonly" tabIndex="23" varType="BOOLEAN" notNull="1" required="1" defaultValue="0" value="0">
           <CheckBox width="5" text="Juice" posY="4" posX="1" gridWidth="5"/>
