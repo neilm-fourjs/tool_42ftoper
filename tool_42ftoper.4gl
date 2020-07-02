@@ -153,6 +153,7 @@ FUNCTION procNode2(l_n om.domNode)
 		WHEN "Page" CALL procContainer(l_n.getTagName().toUpperCase(),l_n)
 		WHEN "Group" CALL procContainer(l_n.getTagName().toUpperCase(),l_n)
 		WHEN "Grid" CALL procGrid(l_n)
+		WHEN "Screen" CALL procGrid(l_n) -- treat legacy Screen as a grid.
 		WHEN "RecordView" RETURN TRUE -- DISPLAY "Ignoring RecordView"
 		WHEN "Link" RETURN TRUE -- DISPLAY "Ignoring Link"
 		OTHERWISE
@@ -191,7 +192,7 @@ FUNCTION procGridItem(l_n om.domNode)
 
 	LET l_txt = l_n.getAttribute("text")
 	LET x = l_n.getAttribute("posX") + 1
-	LET y = l_n.getAttribute("posY")
+	LET y = l_n.getAttribute("posY") + 1
 	LET w = l_n.getAttribute("width")
 
 	IF m_got_ff THEN
@@ -204,6 +205,12 @@ FUNCTION procGridItem(l_n om.domNode)
 		END IF
 		IF l_n.getAttribute("valueMin") IS NOT NULL THEN
 			LET m_fields[ m_fldno ].att = m_fields[ m_fldno ].att.append(", VALUEMIN="||l_n.getAttribute("valueMin") )
+		END IF
+		IF l_n.getAttribute("shift") = "up" THEN
+			LET m_fields[ m_fldno ].att = m_fields[ m_fldno ].att.append(", UPSHIFT")
+		END IF
+		IF l_n.getAttribute("shift") = "down" THEN
+			LET m_fields[ m_fldno ].att = m_fields[ m_fldno ].att.append(", DOWNSHIFT")
 		END IF
 	END IF
 
@@ -226,8 +233,9 @@ FUNCTION procGridItem(l_n om.domNode)
 			LET l_nudge = l_nudge + 1
 			LET x = x + 1
 		END IF
+		IF l_txt IS NULL OR l_txt.getLength() < 1 THEN LET l_txt = "[\"\"]" END IF
 		LET m_grid[y].line[x,x+l_txt.getLength()] = l_txt
-		DISPLAY SFMT("procGridItem:%1 X=%2 Y=%3 W=%4 TXT=%5",l_n.getTagName(), x, y, w, l_txt)
+		DISPLAY SFMT("procGridItem:%1 X=%2 Y=%3 W=%4 TXT=%5",l_n.getTagName(), x, y, w, NVL(l_txt,"NULL"))
 	END IF
 	IF l_nudge > 0 THEN
 		DISPLAY SFMT("WARNING: Fld: %1 Nudged x by %2 !", m_fields[ m_fldno ].nam, l_nudge )
@@ -253,6 +261,8 @@ FUNCTION endGrid()
 		FOR x = 1 TO m_grid.getLength()
 			IF m_grid[x].line IS NOT NULL THEN
 				CALL m_chan.writeLine( m_grid[x].line CLIPPED)
+			ELSE
+				CALL m_chan.writeLine( "[\"\"]" )
 			END IF
 		END FOR
 		CALL m_chan.writeLine("}")

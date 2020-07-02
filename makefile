@@ -11,7 +11,8 @@ fgl_frm1 =
 #depend::
 #	echo "making depends";  cd lib ; ./link_lib
 
-ARG1=generated
+#ARG1=generated
+ARG1=i4glper
 PRG1=tool_42ftoper.42r
 PRG2=test.42r
 

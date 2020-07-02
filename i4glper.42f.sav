@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Form name="i4glper" build="3.20.10" width="41" height="5" delimiters=" ">
+  <Screen width="41" height="5">
+    <Label text="Package Code" posY="1" posX="2" gridWidth="12"/>
+    <Label text=":" posY="1" posX="17" gridWidth="2"/>
+    <FormField name="formonly.pack_code" colName="pack_code" sqlType="CHAR" fieldId="0" sqlTabName="formonly" required="1" tabIndex="1">
+      <Edit width="10" shift="up" reverse="1" posY="1" posX="20" gridWidth="10"/>
+    </FormField>
+    <Label text="Download Speed :" posY="3" posX="2" gridWidth="17"/>
+    <FormField name="formonly.dl_speed" colName="dl_speed" sqlType="CHAR" fieldId="1" sqlTabName="formonly" required="1" tabIndex="2">
+      <Edit width="20" reverse="1" posY="3" posX="20" gridWidth="20"/>
+    </FormField>
+  </Screen>
+  <RecordView tabName="formonly">
+    <Link colName="pack_code" fieldIdRef="0"/>
+    <Link colName="dl_speed" fieldIdRef="1"/>
+  </RecordView>
+</Form>
