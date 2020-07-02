@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Form name="pack_code_brw" build="3.20.10" width="47" height="14" delimiters="  ">
+  <Screen width="47" height="14">
+    <RipGraphic type="ul" posY="0" posX="3" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="4" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="5" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="6" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="7" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="8" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="9" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="10" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="11" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="12" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="13" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="14" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="15" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="16" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="17" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="18" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="19" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="20" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="21" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="22" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="23" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="24" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="25" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="26" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="27" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="28" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="29" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="30" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="31" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="32" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="33" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="34" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="35" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="36" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="37" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="38" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="39" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="40" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="41" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="42" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="43" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="44" gridWidth="1"/>
+    <RipGraphic type="ho" posY="0" posX="45" gridWidth="1"/>
+    <RipGraphic type="ur" posY="0" posX="46" gridWidth="1"/>
+    <RipGraphic type="ve" posY="1" posX="3" gridWidth="1"/>
+    <Label text="Package Code" posY="1" posX="7" gridWidth="12"/>
+    <Label text="Download Speed" posY="1" posX="26" gridWidth="14"/>
+    <RipGraphic type="ve" posY="1" posX="46" gridWidth="1"/>
+    <RipGraphic type="bl" posY="2" posX="3" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="4" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="5" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="6" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="7" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="8" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="9" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="10" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="11" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="12" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="13" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="14" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="15" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="16" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="17" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="18" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="19" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="20" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="21" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="22" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="23" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="24" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="25" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="26" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="27" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="28" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="29" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="30" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="31" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="32" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="33" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="34" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="35" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="36" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="37" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="38" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="39" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="40" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="41" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="42" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="43" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="44" gridWidth="1"/>
+    <RipGraphic type="ho" posY="2" posX="45" gridWidth="1"/>
+    <RipGraphic type="br" posY="2" posX="46" gridWidth="1"/>
+    <RipGraphic type="ve" posY="3" posX="3" gridWidth="1"/>
+    <Matrix pageSize="10" name="formonly.dummy" colName="dummy" sqlType="CHAR" fieldId="0" sqlTabName="formonly" tabIndex="1">
+      <Edit width="1" posY="3" posX="6" gridWidth="1"/>
+    </Matrix>
+    <Matrix pageSize="10" name="formonly.pack_code" colName="pack_code" fieldId="1" sqlTabName="formonly" noEntry="1" tabIndex="2">
+      <Edit width="10" posY="3" posX="9" gridWidth="10"/>
+    </Matrix>
+    <Matrix pageSize="10" name="formonly.dl_speed" colName="dl_speed" fieldId="2" sqlTabName="formonly" noEntry="1" tabIndex="3">
+      <Edit width="21" posY="3" posX="22" gridWidth="21"/>
+    </Matrix>
+    <RipGraphic type="ve" posY="3" posX="46" gridWidth="1"/>
+    <RipGraphic type="ve" posY="4" posX="3" gridWidth="1"/>
+    <RipGraphic type="ve" posY="4" posX="46" gridWidth="1"/>
+    <RipGraphic type="ve" posY="5" posX="3" gridWidth="1"/>
+    <RipGraphic type="ve" posY="5" posX="46" gridWidth="1"/>
+    <RipGraphic type="ve" posY="6" posX="3" gridWidth="1"/>
+    <RipGraphic type="ve" posY="6" posX="46" gridWidth="1"/>
+    <RipGraphic type="ve" posY="7" posX="3" gridWidth="1"/>
+    <RipGraphic type="ve" posY="7" posX="46" gridWidth="1"/>
+    <RipGraphic type="ve" posY="8" posX="3" gridWidth="1"/>
+    <RipGraphic type="ve" posY="8" posX="46" gridWidth="1"/>
+    <RipGraphic type="ve" posY="9" posX="3" gridWidth="1"/>
+    <RipGraphic type="ve" posY="9" posX="46" gridWidth="1"/>
+    <RipGraphic type="ve" posY="10" posX="3" gridWidth="1"/>
+    <RipGraphic type="ve" posY="10" posX="46" gridWidth="1"/>
+    <RipGraphic type="ve" posY="11" posX="3" gridWidth="1"/>
+    <RipGraphic type="ve" posY="11" posX="46" gridWidth="1"/>
+    <RipGraphic type="ve" posY="12" posX="3" gridWidth="1"/>
+    <RipGraphic type="ve" posY="12" posX="46" gridWidth="1"/>
+    <RipGraphic type="bl" posY="13" posX="3" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="4" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="5" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="6" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="7" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="8" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="9" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="10" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="11" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="12" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="13" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="14" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="15" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="16" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="17" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="18" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="19" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="20" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="21" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="22" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="23" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="24" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="25" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="26" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="27" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="28" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="29" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="30" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="31" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="32" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="33" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="34" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="35" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="36" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="37" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="38" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="39" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="40" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="41" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="42" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="43" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="44" gridWidth="1"/>
+    <RipGraphic type="ho" posY="13" posX="45" gridWidth="1"/>
+    <RipGraphic type="br" posY="13" posX="46" gridWidth="1"/>
+  </Screen>
+  <RecordView tabName="formonly">
+    <Link colName="dummy" fieldIdRef="0"/>
+    <Link colName="pack_code" fieldIdRef="1"/>
+    <Link colName="dl_speed" fieldIdRef="2"/>
+  </RecordView>
+  <RecordView tabName="scr_arr">
+    <Link colName="pack_code" fieldIdRef="1"/>
+    <Link colName="dl_speed" fieldIdRef="2"/>
+  </RecordView>
+</Form>

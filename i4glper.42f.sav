@@ -10,9 +10,13 @@
     <FormField name="formonly.dl_speed" colName="dl_speed" sqlType="CHAR" fieldId="1" sqlTabName="formonly" required="1" tabIndex="2">
       <Edit width="20" reverse="1" posY="3" posX="20" gridWidth="20"/>
     </FormField>
+    <FormField name="formonly.dummy" colName="dummy" fieldId="2" sqlTabName="formonly" tabIndex="3">
+      <Edit width="1" posY="4" posX="1" gridWidth="1"/>
+    </FormField>
   </Screen>
   <RecordView tabName="formonly">
     <Link colName="pack_code" fieldIdRef="0"/>
     <Link colName="dl_speed" fieldIdRef="1"/>
+    <Link colName="dummy" fieldIdRef="2"/>
   </RecordView>
 </Form>

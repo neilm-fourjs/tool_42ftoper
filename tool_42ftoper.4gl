@@ -19,7 +19,11 @@ DEFINE m_cont DYNAMIC ARRAY OF RECORD
 		typ STRING,
 		nam STRING
 	END RECORD
+DEFINE m_pageSize SMALLINT = 0
 DEFINE m_lev SMALLINT = 0
+DEFINE m_scrrecs DYNAMIC ARRAY OF STRING
+DEFINE m_scrrecs_f DYNAMIC ARRAY OF STRING
+
 MAIN
 	DEFINE l_fileName STRING
 	DEFINE x SMALLINT
@@ -59,6 +63,13 @@ MAIN
 	FOR x = 1 TO m_fields.getLength()
 		CALL m_chan.writeLine( SFMT("%1 f%2 = %3%4;", m_fields[x].wdg, x, m_fields[x].nam, m_fields[x].att ) )
 	END FOR
+	IF m_scrrecs.getLength() > 0 THEN
+		CALL m_chan.writeLine("")
+		CALL m_chan.writeLine("INSTRUCTIONS")
+		FOR x = 1 TO m_scrrecs.getLength()
+			CALL m_chan.writeLine( SFMT("SCREEN RECORD %1 ( %2 );", m_scrrecs[x], m_scrrecs_f[x] ) )
+		END FOR
+	END IF
 
 	CALL m_chan.close()
 
@@ -148,14 +159,15 @@ FUNCTION procNode2(l_n om.domNode)
 		WHEN "TopMenuItem" -- ignore
 		WHEN "ActionDefaults" -- ignore
 		WHEN "Action" -- ignore
+		WHEN "RipGraphic" -- ignore
 		WHEN "VBox" CALL procContainer(l_n.getTagName().toUpperCase(),l_n)
 		WHEN "Folder" CALL procContainer(l_n.getTagName().toUpperCase(),l_n)
 		WHEN "Page" CALL procContainer(l_n.getTagName().toUpperCase(),l_n)
 		WHEN "Group" CALL procContainer(l_n.getTagName().toUpperCase(),l_n)
 		WHEN "Grid" CALL procGrid(l_n)
 		WHEN "Screen" CALL procGrid(l_n) -- treat legacy Screen as a grid.
-		WHEN "RecordView" RETURN TRUE -- DISPLAY "Ignoring RecordView"
-		WHEN "Link" RETURN TRUE -- DISPLAY "Ignoring Link"
+		WHEN "RecordView" CALL procRecordView(l_n)
+		WHEN "Link" RETURN TRUE -- procRecordView processes the links
 		OTHERWISE
 			CALL procGridItem(l_n)
 	END CASE
@@ -173,10 +185,17 @@ FUNCTION procToolBar(l_n om.domNode)
 END FUNCTION
 --------------------------------------------------------------------------------
 FUNCTION procGridItem(l_n om.domNode)
-	DEFINE x,y,w, l_nudge SMALLINT
-	DEFINE l_txt STRING
+	DEFINE x, y, w, y_arr, l_nudge SMALLINT
+	DEFINE l_tag, l_txt STRING
 
-	IF l_n.getTagName() = "FormField" THEN
+	LET l_tag = l_n.getTagName()
+	IF l_tag = "Matrix" THEN
+		LET m_pageSize = l_n.getAttribute("pageSize")
+		LET l_tag = "TableColumn"
+		DISPLAY "Matrix: pageSize: ",m_pageSize
+	END IF
+	IF l_tag = "FormField" OR l_tag = "TableColumn" THEN
+		IF l_tag = "FormField" THEN LET m_pageSize = 0 END IF
 		LET m_fldno = m_fldno + 1
 		LET m_fields[ m_fldno ].nam = l_n.getAttribute("name")
 		LET m_fields[ m_fldno ].wdg = "EDIT"
@@ -228,6 +247,17 @@ FUNCTION procGridItem(l_n om.domNode)
 		END IF
 		LET m_grid[y].line[x+w+1] = "]"
 		DISPLAY SFMT("procGridItem:%1 X=%2 Y=%3 W=%4 FF=%5",l_n.getTagName(), x, y, w, m_fldno )
+		IF m_pageSize > 0 THEN
+			DISPLAY SFMT("Adding array lines: %1 to %2", y+1, y+(m_pageSize-1) )
+			FOR y_arr = y+1 TO y+(m_pageSize-1)
+				IF m_grid[y_arr].line[x] = "]" THEN
+					LET m_grid[y_arr].line[x,x+w] = "|f"||m_fldno
+				ELSE
+					LET m_grid[y_arr].line[x,x+w] = "[f"||m_fldno
+				END IF
+				LET m_grid[y_arr].line[x+w+1] = "]"
+			END FOR
+		END IF
 	ELSE
 		IF m_grid[y].line[x] = "]" THEN
 			LET l_nudge = l_nudge + 1
@@ -318,4 +348,27 @@ FUNCTION procAttrib(
 		CALL l_line.append(SFMT("%1 %2=\"%3\"", l_com, l_nam.toUpperCase(), l_att))
 	END IF
 	RETURN l_att
+END FUNCTION
+--------------------------------------------------------------------------------
+FUNCTION procRecordView( l_n om.domNode )
+	DEFINE l_nam STRING	
+	DEFINE x SMALLINT
+	DEFINE l_n_link om.domNode
+	LET l_nam = l_n.getAttribute("tabName")
+	DISPLAY "procRecordView: ", l_nam
+	IF l_nam = "formonly" THEN RETURN END IF
+	FOR x = 1 TO m_scrrecs.getLength()
+		IF m_scrrecs[x] = l_nam THEN EXIT FOR END IF
+	END FOR
+	IF x > m_scrrecs.getLength() THEN
+		LET m_scrrecs[ x ] = l_n.getAttribute("tabName")
+	END IF
+	LET l_n_link = l_n.getFirstChild()
+	WHILE l_n_link IS NOT NULL 
+		LET m_scrrecs_f[x] = m_scrrecs_f[x].append( l_n_link.getAttribute("colName") )
+		LET l_n_link = l_n_link.getNext()
+		IF l_n_link IS NOT NULL THEN
+			LET m_scrrecs_f[x] = m_scrrecs_f[x].append( ", " )
+		END IF
+	END WHILE
 END FUNCTION
