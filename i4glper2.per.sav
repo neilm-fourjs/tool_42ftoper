@@ -1,0 +1,31 @@
+database formonly
+screen
+{
+   \gp------------------------------------------q\g
+   \g|\g   Package Code       Download Speed      \g|\g
+   \gb------------------------------------------d\g
+   \g|\g [a][f001      ] [f002                 ]  \g|\g
+   \g|\g [a][f001      ] [f002                 ]  \g|\g
+   \g|\g [a][f001      ] [f002                 ]  \g|\g
+   \g|\g [a][f001      ] [f002                 ]  \g|\g
+   \g|\g [a][f001      ] [f002                 ]  \g|\g
+   \g|\g [a][f001      ] [f002                 ]  \g|\g
+   \g|\g [a][f001      ] [f002                 ]  \g|\g
+   \g|\g [a][f001      ] [f002                 ]  \g|\g
+   \g|\g [a][f001      ] [f002                 ]  \g|\g
+   \g|\g [a][f001      ] [f002                 ]  \g|\g
+   \gb------------------------------------------d\g 
+}
+
+attributes
+a =formonly.dummy type char;
+f001 = formonly.pack_code,noentry;
+f002 = formonly.dl_speed,noentry;
+
+instructions
+delimiters "  "
+screen record scr_arr[10] (pack_code, dl_speed);
+
+---------------- Start Version Control ----------------#
+-- %W   %G
+---------------- End Version Control ------------------#

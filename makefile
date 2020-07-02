@@ -12,7 +12,7 @@ fgl_frm1 =
 #	echo "making depends";  cd lib ; ./link_lib
 
 #ARG1=generated
-ARG1=i4glper
+ARG1=i4glper2
 PRG1=tool_42ftoper.42r
 PRG2=test.42r
 

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<Form name="i4glper" build="3.20.10" width="41" height="5" delimiters=" ">
-  <Screen width="41" height="5">
+<Form name="i4glper" build="3.20.10" width="41" height="8" delimiters=" ">
+  <Screen width="41" height="8">
     <Label text="Package Code" posY="1" posX="2" gridWidth="12"/>
     <Label text=":" posY="1" posX="17" gridWidth="2"/>
     <FormField name="formonly.pack_code" colName="pack_code" sqlType="CHAR" fieldId="0" sqlTabName="formonly" required="1" tabIndex="1">
@@ -10,13 +10,18 @@
     <FormField name="formonly.dl_speed" colName="dl_speed" sqlType="CHAR" fieldId="1" sqlTabName="formonly" required="1" tabIndex="2">
       <Edit width="20" reverse="1" posY="3" posX="20" gridWidth="20"/>
     </FormField>
-    <FormField name="formonly.dummy" colName="dummy" fieldId="2" sqlTabName="formonly" tabIndex="3">
-      <Edit width="1" posY="4" posX="1" gridWidth="1"/>
+    <Label text="Confirm:" posY="5" posX="2" gridWidth="9"/>
+    <FormField name="formonly.confirm" colName="confirm" fieldId="2" sqlTabName="formonly" tabIndex="3">
+      <Edit width="1" posY="5" posX="12" gridWidth="1"/>
+    </FormField>
+    <FormField name="formonly.dummy" colName="dummy" fieldId="3" sqlTabName="formonly" tabIndex="4">
+      <Edit width="1" posY="7" posX="1" gridWidth="1"/>
     </FormField>
   </Screen>
   <RecordView tabName="formonly">
     <Link colName="pack_code" fieldIdRef="0"/>
     <Link colName="dl_speed" fieldIdRef="1"/>
-    <Link colName="dummy" fieldIdRef="2"/>
+    <Link colName="confirm" fieldIdRef="2"/>
+    <Link colName="dummy" fieldIdRef="3"/>
   </RecordView>
 </Form>

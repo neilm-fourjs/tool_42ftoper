@@ -1,0 +1,24 @@
+DATABASE FORMONLY   
+SCREEN
+{
+                                                         
+  Package Code   : [f001      ]
+
+  Download Speed : [f002                ]
+  
+  Confirm: [a]
+
+[b]
+}
+
+ATTRIBUTES
+f001 = FORMONLY.pack_code TYPE CHAR, UPSHIFT, REQUIRED, REVERSE;
+f002 = FORMONLY.dl_speed TYPE CHAR, REVERSE, REQUIRED;
+a = FORMONLY.confirm;
+b = FORMONLY.dummy;
+
+INSTRUCTIONS
+delimiters " "
+-----------------Start Version Control -no change 10861
+-- %W	%G 
+---------------- End Version Control ------------------# 

@@ -8,6 +8,7 @@ DEFINE m_fields DYNAMIC ARRAY OF RECORD
 	id STRING,
 	typ STRING,
 	tab STRING,
+	ftag STRING,
 	nam STRING,
 	wdg STRING,
 	att STRING
@@ -23,6 +24,7 @@ DEFINE m_pageSize SMALLINT = 0
 DEFINE m_lev SMALLINT = 0
 DEFINE m_scrrecs DYNAMIC ARRAY OF STRING
 DEFINE m_scrrecs_f DYNAMIC ARRAY OF STRING
+DEFINE m_next_single_tag SMALLINT = 1
 
 MAIN
 	DEFINE l_fileName STRING
@@ -61,7 +63,7 @@ MAIN
 	CALL m_chan.writeLine("")
 	CALL m_chan.writeLine("ATTRIBUTES")
 	FOR x = 1 TO m_fields.getLength()
-		CALL m_chan.writeLine( SFMT("%1 f%2 = %3%4;", m_fields[x].wdg, x, m_fields[x].nam, m_fields[x].att ) )
+		CALL m_chan.writeLine( SFMT("%1 %2 = %3%4;", m_fields[x].wdg, m_fields[x].ftag, m_fields[x].nam, m_fields[x].att ) )
 	END FOR
 	IF m_scrrecs.getLength() > 0 THEN
 		CALL m_chan.writeLine("")
@@ -216,6 +218,7 @@ FUNCTION procGridItem(l_n om.domNode)
 
 	IF m_got_ff THEN
 		LET m_fields[ m_fldno ].wdg = l_n.getTagName().toUpperCase()
+		LET m_fields[ m_fldno ].ftag = "f"||m_fldno
 		IF l_n.getTagName() = "CheckBox" AND l_txt.getLength() > 0 THEN
 			LET m_fields[ m_fldno ].att = ",TEXT=\""||l_txt||"\""
 		END IF
@@ -240,10 +243,14 @@ FUNCTION procGridItem(l_n om.domNode)
 		LET x = x + 1
 	END WHILE
 	IF m_got_ff THEN
+		IF w = 1 THEN
+			LET m_fields[ m_fldno ].ftag = ASCII(96+m_next_single_tag)
+			LET m_next_single_tag = m_next_single_tag + 1
+		END IF
 		IF m_grid[y].line[x] = "]" THEN
-			LET m_grid[y].line[x,x+w] = "|f"||m_fldno
+			LET m_grid[y].line[x,x+w] = "|"||m_fields[ m_fldno ].ftag
 		ELSE
-			LET m_grid[y].line[x,x+w] = "[f"||m_fldno
+			LET m_grid[y].line[x,x+w] = "["||m_fields[ m_fldno ].ftag
 		END IF
 		LET m_grid[y].line[x+w+1] = "]"
 		DISPLAY SFMT("procGridItem:%1 X=%2 Y=%3 W=%4 FF=%5",l_n.getTagName(), x, y, w, m_fldno )
@@ -251,9 +258,9 @@ FUNCTION procGridItem(l_n om.domNode)
 			DISPLAY SFMT("Adding array lines: %1 to %2", y+1, y+(m_pageSize-1) )
 			FOR y_arr = y+1 TO y+(m_pageSize-1)
 				IF m_grid[y_arr].line[x] = "]" THEN
-					LET m_grid[y_arr].line[x,x+w] = "|f"||m_fldno
+					LET m_grid[y_arr].line[x,x+w] = "|"||m_fields[ m_fldno ].ftag
 				ELSE
-					LET m_grid[y_arr].line[x,x+w] = "[f"||m_fldno
+					LET m_grid[y_arr].line[x,x+w] = "["||m_fields[ m_fldno ].ftag
 				END IF
 				LET m_grid[y_arr].line[x+w+1] = "]"
 			END FOR
