@@ -25,6 +25,7 @@ DEFINE m_lev SMALLINT = 0
 DEFINE m_scrrecs DYNAMIC ARRAY OF STRING
 DEFINE m_scrrecs_f DYNAMIC ARRAY OF STRING
 DEFINE m_next_single_tag SMALLINT = 1
+DEFINE m_genTable BOOLEAN = FALSE
 
 MAIN
 	DEFINE l_fileName STRING
@@ -192,11 +193,11 @@ FUNCTION procGridItem(l_n om.domNode)
 
 	LET l_tag = l_n.getTagName()
 	IF l_tag = "Matrix" THEN
-		LET m_pageSize = l_n.getAttribute("pageSize")
-		LET l_tag = "TableColumn"
-		DISPLAY "Matrix: pageSize: ",m_pageSize
+		IF genTable( l_n ) THEN
+			LET y = y + 1
+		END IF
 	END IF
-	IF l_tag = "FormField" OR l_tag = "TableColumn" THEN
+	IF l_tag = "FormField" OR l_tag = "TableColumn" OR l_tag = "Matrix" THEN
 		IF l_tag = "FormField" THEN LET m_pageSize = 0 END IF
 		LET m_fldno = m_fldno + 1
 		LET m_fields[ m_fldno ].nam = l_n.getAttribute("name")
@@ -378,4 +379,51 @@ FUNCTION procRecordView( l_n om.domNode )
 			LET m_scrrecs_f[x] = m_scrrecs_f[x].append( ", " )
 		END IF
 	END WHILE
+END FUNCTION
+--------------------------------------------------------------------------------
+-- In all the Matrix elements are on the same line, try and make table.
+FUNCTION genTable( l_n om.domNode )
+	DEFINE l_n1 om.domNode
+	DEFINE l_nl om.nodeList
+	DEFINE x, y, x1, x2, r, p, ps, w SMALLINT
+	DISPLAY "genTable:", m_genTable
+	IF m_genTable THEN RETURN TRUE END IF
+	LET l_n1 = l_n.getParent()
+	LET l_nl = l_n1.selectByTagName("Matrix")
+	LET r = 0
+	LET ps = 0
+	LET w = 0
+	LET x1 = 0
+	FOR x = 1 TO l_nl.getLength()
+		LET l_n = l_nl.item(x)
+		LET p = l_n.getAttribute("pageSize")
+		IF ps = 0 THEN LET ps = p END IF
+		LET m_pageSize = p
+		DISPLAY "Matrix: pageSize: ",m_pageSize
+		IF p != ps THEN
+			# Matrix elements are not all the same pageSize! - abort
+			RETURN FALSE
+		END IF
+		LET l_n = l_n.getFirstChild()
+		LET y = l_n.getAttribute("posY")	
+		IF x1 = 0 THEN
+			LET x1 = l_n.getAttribute("posX")	
+		END IF
+		LET x2 = l_n.getAttribute("posX")	-- we need x of the last column
+		LET w = l_n.getAttribute("gridWidth")	 -- we need the width of the last column
+		IF r = 0 THEN LET r = y END IF	
+		IF r != y THEN
+			# Matrix elements are not all on the same line! - abort	
+			RETURN FALSE
+		END IF
+	END FOR	
+	LET m_genTable = TRUE
+	IF x1 = 1 THEN LET x1 = 1 END IF
+	LET m_grid[y].line[x1,x1+5] = "<T tab"
+	IF w < 7 THEN LET w = 7 END IF
+	LET m_grid[y].line[x2+w+3] = ">"
+	DISPLAY SFMT("x1: %1 x2: %2 w: %3", x1,x2,w)
+
+	RETURN TRUE
+
 END FUNCTION
